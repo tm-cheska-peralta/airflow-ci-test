@@ -1,0 +1,20 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"ec2:*",
+				"iam:*",
+				"rds:*",
+				"s3:*",
+				"logs:*",
+				"codestar-connections:*",
+				"codedeploy:*",
+				"codepipeline:*",
+				"ssm:*"
+			],
+			"Resource": "*"
+		}
+	]
+}
