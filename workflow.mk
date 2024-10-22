@@ -80,7 +80,7 @@ cloudbuild: ## Integrate GCP Cloud Build with Airflow/Dagster project
 	rm -rf ci_temp
 
 codepipeline: ## Integrate AWS CodePipeline with Dagster project
-	git clone --depth=1 git@github.com:thinkingmachines/dwt-ci-template.git ci_temp
+	git clone -b feat/45-add-airflow-support-to-codepipeline --single-branch --depth=1 git@github.com:thinkingmachines/dwt-ci-template.git ci_temp
 	cp -R ci_temp/codepipeline/ci/${orchestrator} ci/
 	cp -R ci_temp/codepipeline/scripts/${orchestrator} scripts/
 	cp ci_temp/codepipeline/${cloud-platform}/${orchestrator}/appspec.yml appspec.yml
