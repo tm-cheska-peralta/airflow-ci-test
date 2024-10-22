@@ -86,15 +86,12 @@ codepipeline: ## Integrate AWS CodePipeline with Dagster project
 	cp ci_temp/codepipeline/${cloud-platform}/${orchestrator}/appspec.yml appspec.yml
 	cp -R ci_temp/codepipeline/${cloud-platform}/terraform/modules/codedeploy terraform/modules/
 	cp -R ci_temp/codepipeline/${cloud-platform}/terraform/modules/codepipeline terraform/modules/
-	cp -R ci_temp/codepipeline/${cloud-platform}/terraform/modules/ssm_parameter terraform/modules/
 ## Staging
 	cp ci_temp/codepipeline/${cloud-platform}/terraform/codepipeline.tf terraform/staging/codepipeline.tf
-	cp ci_temp/codepipeline/${cloud-platform}/terraform/ssm_parameter.tf terraform/staging/ssm_parameter.tf
 	echo ${CI_TERRAFORM_TEMPLATE_HEADER} | cat - ci_temp/codepipeline/${cloud-platform}/terraform/variables.tf >> terraform/staging/variables.tf
 	echo ${CI_TERRAFORM_TEMPLATE_HEADER} | cat - ci_temp/codepipeline/${cloud-platform}/terraform/terraform.tfvars.sample >> terraform/staging/terraform.tfvars.sample
 ## Production
 	cp ci_temp/codepipeline/${cloud-platform}/terraform/codepipeline.tf terraform/production/codepipeline.tf
-	cp ci_temp/codepipeline/${cloud-platform}/terraform/ssm_parameter.tf terraform/production/ssm_parameter.tf
 	echo ${CI_TERRAFORM_TEMPLATE_HEADER} | cat - ci_temp/codepipeline/${cloud-platform}/terraform/variables.tf >> terraform/production/variables.tf
 	echo ${CI_TERRAFORM_TEMPLATE_HEADER} | cat - ci_temp/codepipeline/${cloud-platform}/terraform/terraform.tfvars.sample >> terraform/production/terraform.tfvars.sample
 ## Continue
